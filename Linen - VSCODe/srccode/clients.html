@@ -1,0 +1,167 @@
+<section class="clients-section">
+  <div class="container">
+    <h2 class="section-heading">Who We've Worked With</h2>
+    
+    <div class="slider-container">
+      <button class="slider-arrow prev-arrow" aria-label="Previous">‹</button>
+      
+      <div class="slider-wrapper">
+        <div class="slider-track">
+          <!-- Client Items -->
+          <div class="client-item">
+            <img src="https://www.indiandestinationwedding.com/wp-content/uploads/2020/05/Royalton-St-Lucia-logo.jpg" alt="Client 1" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGRR-cHSpTyCjYTWrpHN7bc3FLsCrAVGtMJg&s" alt="Client 2" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR9mb7fVlTKYypTkcO-fLtqRDb9muIELVA4A&s" alt="Client 3" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://sackvilletravel.com/wp-content/uploads/2018/11/CoconutBay-logo.jpg" alt="Client 4" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://media.licdn.com/dms/image/v2/C4D0BAQGUwEkU9nQIBQ/company-logo_200_200/company-logo_200_200/0/1631301630870?e=2147483647&v=beta&t=J8PYdW_01ZfOLW-5fhW8sM7Qi9ueA1ybD1a_gi1l-0I" alt="Client 5" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://via.placeholder.com/200x120" alt="Client 6" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://via.placeholder.com/200x120" alt="Client 7" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://via.placeholder.com/200x120" alt="Client 8" class="client-logo">
+          </div>
+          <div class="client-item">
+            <img src="https://via.placeholder.com/200x120" alt="Client 9" class="client-logo">
+          </div>
+         <div class="client-item">
+            <img src="https://via.placeholder.com/200x120" alt="Client 10" class="client-logo">
+          </div>
+        </div>
+      </div>
+
+      <button class="slider-arrow next-arrow" aria-label="Next">›</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.section-heading {
+color: #9f7e2b; /* Brand primary color */
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+}
+
+.client-item {
+  flex: 0 0 calc(20% - 16px); /* 5 items per view (20% each - gap compensation) */
+  min-width: 200px;
+}
+
+.client-logo {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.client-logo:hover {
+  transform: scale(1.05);
+}
+
+.slider-arrow {
+background: #2a5d8a; /* Brand color */
+  color: #2a5d8a;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+  left: 0;
+}
+
+.next-arrow {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .client-item {
+    flex: 0 0 calc(33.33% - 16px); /* 3 items on mobile */
+  }
+  
+  .slider-container {
+    padding: 0 30px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.slider-track');
+  const prevArrow = document.querySelector('.prev-arrow');
+  const nextArrow = document.querySelector('.next-arrow');
+  const clients = document.querySelectorAll('.client-item');
+  const clientWidth = clients[0].offsetWidth + 20; // width + gap
+  let currentPosition = 0;
+  const visibleItems = 5;
+
+  function updateArrows() {
+    prevArrow.disabled = currentPosition === 0;
+    nextArrow.disabled = currentPosition <= -(clients.length - visibleItems) * clientWidth;
+  }
+
+  prevArrow.addEventListener('click', () => {
+    if (currentPosition < 0) {
+      currentPosition += clientWidth * visibleItems;
+      track.style.transform = `translateX(${currentPosition}px)`;
+      updateArrows();
+    }
+  });
+
+  nextArrow.addEventListener('click', () => {
+    if (currentPosition > -(clients.length - visibleItems) * clientWidth) {
+      currentPosition -= clientWidth * visibleItems;
+      track.style.transform = `translateX(${currentPosition}px)`;
+      updateArrows();
+    }
+  });
+
+  updateArrows();
+});
+</script>

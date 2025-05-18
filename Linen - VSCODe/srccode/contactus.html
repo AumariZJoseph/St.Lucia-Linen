@@ -1,0 +1,193 @@
+<style>
+    /* Full-width background fix */
+    .contact-section-wrapper {
+        position: relative;
+        padding: 5rem 0;
+        overflow: hidden;
+    }
+
+    .contact-section-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        background: #0066cc;
+        margin-left: calc(-50vw + 50%);
+        z-index: 0;
+    }
+
+    /* Content container */
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #FFFFFF;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        border: 3px solid #003366;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Map styling */
+    .map-container {
+        position: relative;
+        min-height: 500px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
+
+    /* Contact info styling */
+    .contact-info {
+        padding: 3rem;
+        background: #FFFFFF;
+        position: relative;
+    }
+
+    .contact-info::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 70%;
+        width: 1px;
+        background: #0066cc;
+        opacity: 0.3;
+    }
+
+    .contact-title {
+        font-size: 2.2rem;
+        color: #003366;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #0066cc;
+        display: inline-block;
+    }
+
+    .contact-details {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+    }
+
+    .contact-item {
+        margin-bottom: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .contact-icon {
+        color: #0066cc;
+        font-size: 1.2rem;
+        margin-top: 3px;
+        min-width: 25px;
+    }
+
+    .business-hours {
+        background: rgba(0, 102, 204, 0.08);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 3px solid #0066cc;
+    }
+
+    .business-hours h3 {
+        color: #003366;
+        margin-bottom: 1rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+            margin: 0 15px;
+        }
+        
+        .map-container {
+            min-height: 300px;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .contact-info::before {
+            display: none;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+        }
+        
+        .contact-section-wrapper {
+            padding: 3rem 0;
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<div id="contact-us" class="contact-section-wrapper">
+
+    <div class="contact-container">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.7632537543327!2d-60.963736999999995!3d14.032042899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c4067f1896ae067%3A0xce5aa5e704a046f1!2sSt.Lucia%20Linen%20Services%20Ltd!5e0!3m2!1sen!2s!4v1746118431662!5m2!1sen!2s" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="contact-info">
+            <h2 class="contact-title">Get In Touch</h2>
+            
+            <ul class="contact-details">
+                <li class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>St. Lucia Linen Services Ltd</strong><br>
+                        Box 2135, Union International Park<br>
+                        Gros Islet, Saint Lucia
+                    </div>
+                </li>
+                
+                <li class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <a href="tel:7584502924">758-450-2924</a>
+                    </div>
+                </li>
+                
+                <li class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <a href="mailto:admin@stlucialinen.com">admin@stlucialinen.com</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="business-hours">
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                <p>Saturday: Closed</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+    </div>
+</div>
